@@ -17,5 +17,20 @@ This repository will gather stuff about my Raspberry Pi projects. It is mainly w
 npm -v`
 + Clean up, eg.: `rm -rf node-v16.1.0-linux-armv6l*`
 
+## Set DuckDNS to point to server
+Curl command to get DuckDNS to point to server put in file /opt/duckdns/duck.sh
+`echo url="https://www.duckdns.org/update?domains=<DOMAIN>&token=<TOKEN>&ip=" | curl -k -o /var/log/duckdns/duck.log -K -`
 
+Secure file a little
 
+`sudo chmod 700 /opt/duckdns/duck.sh`
+
+Set crontab to update regularly 
+
+`sudo crontab -e`
+
+Add
+
+`*/5 * * * * /opt/duckdns/duck.sh >/dev/null 2>&1`
+
+To update every five min.
