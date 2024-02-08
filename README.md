@@ -34,3 +34,6 @@ Add
 `*/5 * * * * /opt/duckdns/duck.sh >/dev/null 2>&1`
 
 To update every five min.
+
+## Put public key on ssh server
+`ssh-copy-id username@remote_host`
